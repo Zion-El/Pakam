@@ -27,7 +27,7 @@ const Dashboard = () => {
   return (
     <>
     <SideBar>
-        <Typography variant='h4'>
+        <Typography sx={{fontSize:24, fontWeight:700, fontFamily: "Raleway"}}  variant='h4'>
             Assessment
         </Typography>
 

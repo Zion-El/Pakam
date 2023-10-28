@@ -121,7 +121,7 @@ export default function CreateModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id="modal-modal-title" variant="h6" component="h2" sx={{fontWeight:700, fontFamily:"Raleway", fontSize:24, mb:6}}>
             Create Assessment
           </Typography>
             <form onSubmit={handleSubmit} className=''>
@@ -133,6 +133,7 @@ export default function CreateModal() {
                             <input className="border border-[#005700] w-full" type="text" placeholder='Full name' value={formData.fullName} name='fullName' onChange={handleInputChange}  />
                             {errors.fullName && (<p className="error text-[#ff0000]">{errors.fullName}</p> )}
                         </div>
+                        
                         <div className='mb-6'>
                             <p>Description</p>
                             <input className="border border-[#005700] w-full" type="text" placeholder='Enter product description' value={formData.description} name='description' onChange={handleInputChange} />

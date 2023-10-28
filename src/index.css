@@ -1,13 +1,42 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap');
+
+@layer base{
+  section{
+    @apply min-h-[100vh] w-full
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components{
+  form p{
+    @apply text-[14px] font-[500] leading-[22px] text-[Raleway] text-[#222D33]
+  }
+
+  form .error{
+    @apply font-[400]
+  }
+
+  input{
+    @apply border rounded-[8px] h-[40px] w-[420px] px-[13px] py-[17px] 
+  }
+  input::placeholder{
+    @apply text-[14px] text-[Raleway]
+  }
+
+  form .submit{
+    @apply py-0
+  }
+
+  .create{
+    background: linear-gradient(178.54deg, #008300 -24.78%, #005700 98.76%);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  input{
+    @apply w-[300px] 
+  }
 }

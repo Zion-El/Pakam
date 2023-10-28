@@ -66,8 +66,14 @@ function Login(props) {
                
             } catch (error) {
               setLoading(false)
-              if(error)
-              toast.error('Login Unsuccessful')
+              if(error.message.includes("401")){
+                toast.error('Invalid Credentials')
+              }else if (error.message ==='Network Error'){
+                toast.error('No internet connection')
+              }else{
+                toast.error('Login Unsuccessful')
+              }
+              
               console.error(error);
             }}
           

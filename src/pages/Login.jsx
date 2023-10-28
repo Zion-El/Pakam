@@ -51,10 +51,11 @@ function Login(props) {
                 headers: {'Content-Type' : 'application/json'}
               });
               const result = response.data
-              setLoading(false)
+              
               if (result.message === "Login successful"){
                     const userData = result.data;
                     login(userData);
+                    setLoading(false)
                     toast.success('Login successful');
                       navigate('/dashboard')
 
@@ -65,6 +66,8 @@ function Login(props) {
                
             } catch (error) {
               setLoading(false)
+              if(error)
+              toast.error('Login Unsuccessful')
               console.error(error);
             }}
           
@@ -105,18 +108,19 @@ function Login(props) {
                         <div>
                             <p>UserName</p>
                             <input type="text" placeholder='Enter your First Name' name='username' onChange={handleInputChange} />
-                            {errors.lastName && (<p className="error text-[#ff0000]">{errors.username}</p> )}
+                            {errors.lastName && (<p className="error text-[#ff0000] text-[12px]">{errors.username}</p> )}
                         </div>
                         <div className='mt-6 mb-12'>
                             <p>Password</p>
                             <div className='relative'>
-                               <input type={toggle? 'text':'password'} placeholder='Enter your First Name' className='absolute' name='password' value={formData.password}  onChange={handleInputChange}/>
+                               <input type={toggle? 'text':'password'} placeholder='Enter your First Name' name='password' value={formData.password}  onChange={handleInputChange}/>
                                <button onClick={()=> setToggle(!toggle)} className='absolute right-5 top-1'>
                                 {toggle? <ViewIcon />: <ViewOffIcon/>} 
                                </button>
                                
                             </div>
-                            {errors.lastName && (<p className="error text-[#ff0000]">{errors.password}</p> )}
+                            {!errors.password ? <p className='text-[#C2C2C2] text-[Raleway] text-[12px] font-[400] leading-[22px]'>Must be 8 characters long, Uppercase inclusive</p>: ""}
+                            {errors.lastName && (<p className="error text-[#ff0000] text-[12px]">{errors.password}</p> )}
                         </div>                        
 
                 </div>

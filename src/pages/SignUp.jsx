@@ -120,29 +120,31 @@ const SignUp = () => {
                         <div className='mb-6'>
                             <p>First Name</p>
                             <input type="text" placeholder='Enter your First Name' value={formData.firstName} name='firstName' onChange={handleInputChange}  />
-                            {errors.firstName && (<p className="error text-[#ff0000]">{errors.firstName}</p> )}
+                            {errors.firstName && (<p className="error text-[#ff0000] text-[12px]">{errors.firstName}</p> )}
                         </div>
                         <div className='mb-6'>
                             <p>Last Name</p>
                             <input type="text" placeholder='Enter your Last Name' value={formData.lastName} name='lastName' onChange={handleInputChange} />
-                            {errors.lastName && (<p className="error text-[#ff0000]">{errors.lastName}</p> )}
+                            {errors.lastName && (<p className="error text-[#ff0000] text-[12px]">{errors.lastName}</p> )}
                         </div>                        
 
                         <div className='mb-6'>
                             <p>UserName</p>
                             <input type="text" placeholder='Enter your username' value={formData.username} name='username' onChange={handleInputChange} />
-                            {errors.username && (<p className="error text-[#ff0000]">{errors.username}</p> )}
+                            
+                            {errors.username && (<p className="error text-[#ff0000] text-[12px]">{errors.username}</p> )}
                         </div>
                         <div className='mb-6'>
                             <p>Password</p>
                             <div className='relative '>
-                               <input type={toggle? 'text':'password'} placeholder='Enter your password' className='absolute' name='password' value={formData.password}  onChange={handleInputChange}/>
+                               <input type={toggle? 'text':'password'} placeholder='Enter your password'  name='password' value={formData.password}  onChange={handleInputChange}/>
                                <button onClick={()=> setToggle(!toggle)} className='absolute right-5 top-1'>
                                 {toggle? <ViewIcon />: <ViewOffIcon/>} 
                                </button>
+                               {!errors.password ? <p className='text-[#C2C2C2] text-[Raleway] text-[12px] font-[400] leading-[22px]'>Must be 8 characters long, Uppercase inclusive</p>: ""}
+                                {errors.password && (<p className="error text-[#ff0000] text-[12px]">{errors.password}</p> )}
                             </div>
                             
-                            {errors.password && (<p className="error text-[#ff0000]">{errors.password}</p> )}
                         </div>                        
 
 

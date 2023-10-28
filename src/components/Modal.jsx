@@ -77,6 +77,7 @@ export default function CreateModal() {
             localStorage.setItem('productList', JSON.stringify(existingList));
 
             setLoading(false)
+            handleClose()
            }else{
             setLoading(false)
             toast.error("Product creation failed")
@@ -133,7 +134,7 @@ export default function CreateModal() {
                             <input className="border border-[#005700] w-full" type="text" placeholder='Full name' value={formData.fullName} name='fullName' onChange={handleInputChange}  />
                             {errors.fullName && (<p className="error text-[#ff0000]">{errors.fullName}</p> )}
                         </div>
-                        
+
                         <div className='mb-6'>
                             <p>Description</p>
                             <input className="border border-[#005700] w-full" type="text" placeholder='Enter product description' value={formData.description} name='description' onChange={handleInputChange} />
